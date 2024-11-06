@@ -1,16 +1,27 @@
 async function getJoke() {
-    const response = await fetch('https://v2.jokeapi.dev/joke/Any');
-    const data = await response.json();
+    try {
+        const response = await fetch('https://v2.jokeapi.dev/joke/Any');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-    let joke = '';
-    if (data.type === 'single') {
-        joke = data.joke;
-    } else {
-        joke = `${data.setup} ${data.delivery}`;
+        const data = await response.json();
+        let joke = '';
+        
+        if (data.type === 'single') {
+            joke = data.joke;
+        } else {
+            joke = `${data.setup} ${data.delivery}`;
+        }
+
+        document.getElementById('joke').innerText = joke;
+        document.getElementById('character-count').innerText = `Character count: ${joke.length}`;
+    } catch (error) {
+        document.getElementById('joke').innerText = 'Failed to fetch a joke. Please try again later.';
+        document.getElementById('character-count').innerText = 'Character count: 0';
+        console.error('Error fetching joke:', error);
     }
-
-    document.getElementById('joke').innerText = joke;
-    document.getElementById('character-count').innerText = `Character count: ${joke.length}`;
 }
 
 function clearJoke() {
