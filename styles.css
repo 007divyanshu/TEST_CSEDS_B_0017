@@ -5,12 +5,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: white;
 }
 
 .container {
     text-align: center;
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -24,11 +24,11 @@ h1 {
 #joke {
     margin: 20px 0;
     font-size: 16px;
-    color: #333;
+    color: black;
 }
 
 #character-count {
-    color: #777;
+    color: grey;
 }
 
 button {
@@ -41,11 +41,11 @@ button {
 }
 
 #get-joke {
-    background-color: #28a745;
-    color: #fff;
+    background-color: lightgreen;
+    color: white;
 }
 
 #clear-joke {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: red;
+    color: white;
 }
